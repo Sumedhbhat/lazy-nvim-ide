@@ -28,12 +28,23 @@ return {
     opts = {
       spec = {
         { "<leader>a", group = "ai" },
+        { "<leader>gm", group = "Copilot Chat" },
       },
     },
   },
   {
+    "MeanderingProgrammer/render-markdown.nvim",
+    optional = true,
+    opts = {
+      file_types = { "markdown", "copilot-chat" },
+    },
+    ft = { "markdown", "copilot-chat" },
+  },
+
+  {
     dir = IS_DEV and "~/Projects/research/CopilotChat.nvim" or nil,
     "CopilotC-Nvim/CopilotChat.nvim",
+    branch = "main",
     -- version = "v3.3.0", -- Use a specific version to prevent breaking changes
     dependencies = {
       { "nvim-lua/plenary.nvim" },
@@ -43,7 +54,7 @@ return {
       answer_header = "## Copilot ",
       error_header = "## Error ",
       prompts = prompts,
-      auto_follow_cursor = false, -- Don't follow the cursor after getting response
+      -- model = "claude-3.7-sonnet",
       mappings = {
         -- Use tab for completion
         complete = {
@@ -126,27 +137,23 @@ return {
     end,
     event = "VeryLazy",
     keys = {
-      -- Show help actions
-      {
-        "<leader>ah",
-        function()
-          local actions = require("CopilotChat.actions")
-          require("CopilotChat.integrations.fzflua").pick(actions.help_actions())
-        end,
-        desc = "CopilotChat - Help actions",
-      },
       -- Show prompts actions
       {
         "<leader>ap",
         function()
-          local actions = require("CopilotChat.actions")
-          require("CopilotChat.integrations.fzflua").pick(actions.prompt_actions())
+          require("CopilotChat").select_prompt({
+            context = {
+              "buffers",
+            },
+          })
         end,
         desc = "CopilotChat - Prompt actions",
       },
       {
         "<leader>ap",
-        ":lua require('CopilotChat.integrations.fzflua').pick(require('CopilotChat.actions').prompt_actions({selection = require('CopilotChat.select').visual}))<CR>",
+        function()
+          require("CopilotChat").select_prompt()
+        end,
         mode = "x",
         desc = "CopilotChat - Prompt actions",
       },
@@ -165,7 +172,7 @@ return {
       },
       {
         "<leader>ax",
-        ":CopilotChatInline<cr>",
+        ":CopilotChatInline",
         mode = "x",
         desc = "CopilotChat - Inline chat",
       },
@@ -197,10 +204,8 @@ return {
         end,
         desc = "CopilotChat - Quick chat",
       },
-      -- Debug
-      { "<leader>ad", "<cmd>CopilotChatDebugInfo<cr>", desc = "CopilotChat - Debug Info" },
       -- Fix the issue with diagnostic
-      { "<leader>af", "<cmd>CopilotChatFixDiagnostic<cr>", desc = "CopilotChat - Fix Diagnostic" },
+      { "<leader>af", "<cmd>CopilotChatFixError<cr>", desc = "CopilotChat - Fix Diagnostic" },
       -- Clear buffer and chat history
       { "<leader>al", "<cmd>CopilotChatReset<cr>", desc = "CopilotChat - Clear buffer and chat history" },
       -- Toggle Copilot Chat Vsplit
@@ -210,17 +215,5 @@ return {
       -- Copilot Chat Agents
       { "<leader>aa", "<cmd>CopilotChatAgents<cr>", desc = "CopilotChat - Select Agents" },
     },
-  },
-  {
-    "folke/edgy.nvim",
-    optional = true,
-    opts = function(_, opts)
-      opts.right = opts.right or {}
-      table.insert(opts.right, {
-        ft = "copilot-chat",
-        title = "Copilot Chat",
-        size = { width = 50 },
-      })
-    end,
   },
 }
