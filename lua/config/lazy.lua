@@ -21,12 +21,12 @@ require("lazy").setup({
     { import = "plugins.extras.vtsls" },
     { import = "plugins.extras.edgy" },
     { import = "plugins.extras.copilot-chat-v2-fzf" },
-    -- { import = "plugins.extras.vtsls" }, -- Typescript Server alternative
-    -- { import = "plugins.extras.typescript-tools" }, -- Typescript Server alternative
-    -- { import = "lazyvim.plugins.extras.lang.typescript" },
-    -- { import = "lazyvim.plugins.extras.formatting.prettier" },
-    -- { import = "lazyvim.plugins.extras.coding.yanky" },
-    -- { import = "lazyvim.plugins.extras.vscode" },
+    { import = "plugins.extras.vtsls" }, -- Typescript Server alternative
+    { import = "plugins.extras.typescript-tools" }, -- Typescript Server alternative
+    { import = "lazyvim.plugins.extras.lang.typescript" },
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
+    { import = "lazyvim.plugins.extras.coding.yanky" },
+    { import = "lazyvim.plugins.extras.vscode" },
     -- import/override with your plugins
     { import = "plugins" },
   },
@@ -46,9 +46,9 @@ require("lazy").setup({
       -- disable some rtp plugins
       disabled_plugins = {
         "gzip",
-        -- "matchit",
-        -- "matchparen",
-        -- "netrwPlugin",
+        "matchit",
+        "matchparen",
+        "netrwPlugin",
         "tarPlugin",
         "tohtml",
         "tutor",

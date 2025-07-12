@@ -12,7 +12,8 @@ local function is_day_time()
   return hour >= 9 and hour < 19
 end
 
-local is_transparent = is_day_time() and not is_weekend()
+--local is_transparent = is_day_time() and not is_weekend()
+local is_transparent = true
 
 --- Check if it's Warn Terminal
 ---@return boolean
@@ -25,7 +26,7 @@ local function is_tmux()
 end
 
 -- Default color scheme
-local default_color_scheme = "kanagawa"
+local default_color_scheme = "dracula"
 
 -- Select color scheme based on the time, and load it with LazyVim
 local function selectColorSchemeByTime()
@@ -36,14 +37,14 @@ local function selectColorSchemeByTime()
 
   local night_themes = {
     "tokyonight",
-    "nightfox",
-    "rose-pine",
-    "catppuccin-mocha",
-    "everforest",
-    "dracula",
-    "kanagawa",
-    "nord",
-    "cobalt2", -- too bright
+    --"nightfox",
+    --"rose-pine",
+    --"catppuccin-mocha",
+    --"everforest",
+    --"dracula",
+    --"kanagawa",
+    --"nord",
+    --"cobalt2", -- too bright
   }
   local idx = tonumber(os.date("%S")) % #night_themes + 1
 

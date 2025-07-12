@@ -1,31 +1,27 @@
 local Lsp = require("utils.lsp")
 
 return {
-  -- Setup config for formatter
   {
     "stevearc/conform.nvim",
     optional = true,
     keys = {
-      -- Add keymap for show info
       { "<leader>cn", "<cmd>ConformInfo<cr>", desc = "Conform Info" },
     },
     opts = {
       formatters_by_ft = {
         fish = {},
-        -- Conform will run multiple formatters sequentially
         go = { "goimports", "gofmt" },
         python = { "ruff_fix", "ruff_format" },
         php = { "pint" },
         rust = { "rustfmt" },
-        -- Use a sub-list to run only the first available formatter
-        yaml = { { "prettierd", "prettier", "dprint" } },
-        ["markdown"] = { { "prettierd", "prettier", "dprint" } },
-        ["markdown.mdx"] = { { "prettierd", "prettier", "dprint" } },
-        ["javascript"] = { { "deno_fmt", "prettierd", "prettier", "biome", "dprint" } },
-        ["javascriptreact"] = { "rustywind", { "deno_fmt", "prettierd", "prettier", "biome", "dprint" } },
-        ["typescript"] = { { "deno_fmt", "prettierd", "prettier", "biome", "dprint" } },
-        ["typescriptreact"] = { "rustywind", { "deno_fmt", "prettierd", "prettier", "biome", "dprint" } },
-        ["svelte"] = { "rustywind", { "deno_fmt", "prettierd", "prettier", "biome", "dprint" } },
+        yaml = { "prettierd", "prettier", "dprint" },
+        ["markdown"] = { "prettierd", "prettier", "dprint" },
+        ["markdown.mdx"] = { "prettierd", "prettier", "dprint" },
+        ["javascript"] = { "deno_fmt", "prettierd", "prettier", "biome", "dprint" },
+        ["javascriptreact"] = { "deno_fmt", "prettierd", "prettier", "biome", "dprint" },
+        ["typescript"] = { "deno_fmt", "prettierd", "prettier", "biome", "dprint" },
+        ["typescriptreact"] = { "prettierd", "prettier", "biome" },
+        ["svelte"] = { "deno_fmt", "prettierd", "prettier", "biome", "dprint" },
       },
       formatters = {
         biome = {

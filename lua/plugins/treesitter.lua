@@ -27,6 +27,7 @@ return {
         "go",
         "toml",
         "c",
+        "cpp",
         "proto",
         "svelte",
         "astro",

@@ -20,7 +20,8 @@
         "useExhaustiveDependencies": "warn"
       },
       "style": {
-        "noUnusedTemplateLiteral": "warn"
+        "noUnusedTemplateLiteral": "warn",
+        "useImportType": "off"
       },
       "performance": {
         "noAccumulatingSpread": "warn"
