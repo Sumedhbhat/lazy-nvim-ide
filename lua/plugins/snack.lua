@@ -19,6 +19,7 @@ return {
           tabline = true,
         },
       },
+      explorer = { enabled = false },
     },
     keys = {
       -- Zen mode

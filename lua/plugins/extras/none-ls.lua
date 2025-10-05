@@ -92,7 +92,6 @@ return {
 
         -- spell check
         b.diagnostics.codespell,
-        b.diagnostics.misspell,
         -- cspell
         cspell.diagnostics.with({
           -- Set the severity to HINT for unknown words
@@ -110,13 +109,6 @@ return {
           filetypes = { "html", "css", "javascriptreact", "typescriptreact", "svelte" },
         }),
 
-        -- deno
-        b.formatting.deno_fmt.with({
-          filetypes = { "javascript", "javascriptreact", "json", "jsonc", "typescript", "typescriptreact" },
-          condition = function()
-            return deno_config_exists()
-          end,
-        }),
         -- prettier
         b.formatting.prettier.with({
           condition = function()

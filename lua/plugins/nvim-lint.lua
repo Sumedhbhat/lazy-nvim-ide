@@ -22,10 +22,10 @@ return {
         go = { "golangcilint" },
         python = { "ruff" },
         ["*"] = { "cspell", "codespell" },
-        javascript = { "oxlint" },
-        typescript = { "oxlint" },
-        javascriptreact = { "oxlint" },
-        typescriptreact = { "oxlint" },
+        javascript = { "ESLint" },
+        typescript = { "ESLint" },
+        javascriptreact = { "ESLint" },
+        typescriptreact = { "ESLint" },
       },
     },
     keys = {
@@ -39,7 +39,8 @@ return {
             -- .env files
             "dotenv_linter", -- brew install dotenv-linter
             -- Markdown and writing
-            "write_good", -- npm install -g write-good
+            "write_good", -- npm install -g write-good,
+            "ESLint",
           }
 
           vim.ui.select(items, {

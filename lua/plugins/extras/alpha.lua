@@ -8,18 +8,7 @@ return {
     init = false,
     opts = function()
       local dashboard = require("alpha.themes.dashboard")
-      local logo = {
-        [[                                                        ]],
-        [[      ██╗████████╗    ███╗   ███╗ █████╗ ███╗   ██╗     ]],
-        [[      ██║╚══██╔══╝    ████╗ ████║██╔══██╗████╗  ██║     ]],
-        [[      ██║   ██║       ██╔████╔██║███████║██╔██╗ ██║     ]],
-        [[      ██║   ██║       ██║╚██╔╝██║██╔══██║██║╚██╗██║     ]],
-        [[      ██║   ██║       ██║ ╚═╝ ██║██║  ██║██║ ╚████║     ]],
-        [[      ╚═╝   ╚═╝       ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝     ]],
-        [[                                                        ]],
-      }
 
-      dashboard.section.header.val = logo
       dashboard.section.buttons.val = {
         dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
         dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),

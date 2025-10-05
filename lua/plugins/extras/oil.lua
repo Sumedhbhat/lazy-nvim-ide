@@ -24,7 +24,7 @@ return {
       use_default_keymaps = true,
       view_options = {
         -- Show files and directories that start with "."
-        show_hidden = false,
+        show_hidden = true,
         -- This function defines what is considered a "hidden" file
         is_hidden_file = function(name)
           local ignore_folders = { "node_modules", "dist", "build", "coverage", "__pycache__" }
@@ -34,9 +34,10 @@ return {
       -- Configuration for the floating window in oil.open_float
       float = {
         padding = 2,
-        max_width = 120,
+        max_width = 150,
         max_height = max_height(),
         border = "rounded",
+        preview_split = "right",
         win_options = {
           winblend = 0,
         },

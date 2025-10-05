@@ -6,7 +6,7 @@ end
 return {
   -- borrow from https://github.com/folke/dot/blob/master/nvim/lua/plugins/coding.lua
   {
-    "echasnovski/mini.ai",
+    "nvim-mini/mini.ai",
     keys = { { "[f", desc = "Prev function" }, { "]f", desc = "Next function" } },
     opts = function()
       -- add treesitter jumping

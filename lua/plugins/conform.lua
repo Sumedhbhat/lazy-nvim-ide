@@ -17,11 +17,11 @@ return {
         yaml = { "prettierd", "prettier", "dprint" },
         ["markdown"] = { "prettierd", "prettier", "dprint" },
         ["markdown.mdx"] = { "prettierd", "prettier", "dprint" },
-        ["javascript"] = { "deno_fmt", "prettierd", "prettier", "biome", "dprint" },
-        ["javascriptreact"] = { "deno_fmt", "prettierd", "prettier", "biome", "dprint" },
-        ["typescript"] = { "deno_fmt", "prettierd", "prettier", "biome", "dprint" },
+        ["javascript"] = { "prettierd", "prettier", "biome", "dprint" },
+        ["javascriptreact"] = { "prettierd", "prettier", "biome", "dprint" },
+        ["typescript"] = { "prettierd", "prettier", "biome", "dprint" },
         ["typescriptreact"] = { "prettierd", "prettier", "biome" },
-        ["svelte"] = { "deno_fmt", "prettierd", "prettier", "biome", "dprint" },
+        ["svelte"] = { "prettierd", "prettier", "biome", "dprint" },
       },
       formatters = {
         biome = {
@@ -35,11 +35,6 @@ return {
             end
 
             return false
-          end,
-        },
-        deno_fmt = {
-          condition = function()
-            return Lsp.deno_config_exist()
           end,
         },
         dprint = {

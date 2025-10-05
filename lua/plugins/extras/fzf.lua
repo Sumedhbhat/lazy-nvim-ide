@@ -1,10 +1,5 @@
 local logo = [[
-      ██╗████████╗    ███╗   ███╗ █████╗ ███╗   ██╗
-      ██║╚══██╔══╝    ████╗ ████║██╔══██╗████╗  ██║
-      ██║   ██║       ██╔████╔██║███████║██╔██╗ ██║
-      ██║   ██║       ██║╚██╔╝██║██╔══██║██║╚██╗██║
-      ██║   ██║       ██║ ╚═╝ ██║██║  ██║██║ ╚████║
-      ╚═╝   ╚═╝       ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
+SUMEDH'S WORLD
 ]]
 
 logo = string.rep("\n", 4) .. logo .. "\n\n"
@@ -226,8 +221,8 @@ return {
     end,
     keys = {
       { "<esc>", "<cmd>close<cr>", ft = "fzf", mode = "t", nowait = true },
-      { "<c-j>", "<Down>", ft = "fzf", mode = "t", nowait = true },
-      { "<c-k>", "<Up>", ft = "fzf", mode = "t", nowait = true },
+      { "<c-j>", "<Down>",         ft = "fzf", mode = "t", nowait = true },
+      { "<c-k>", "<Up>",           ft = "fzf", mode = "t", nowait = true },
       -- Find file by grep
       {
         "<C-g>",
@@ -243,7 +238,8 @@ return {
 
           fzf_lua.grep_visual({
             cwd = root_dir,
-            rg_opts = "--column --hidden --smart-case --color=always --no-heading --line-number -g '!{.git,node_modules}/'",
+            rg_opts =
+            "--column --hidden --smart-case --color=always --no-heading --line-number -g '!{.git,node_modules}/'",
             multiprocess = true,
           })
         end,
@@ -259,7 +255,8 @@ return {
 
           fzf_lua.grep_visual({
             cwd = root_dir,
-            rg_opts = "--column --hidden --smart-case --color=always --no-heading --line-number -g '!{.git,node_modules}/'",
+            rg_opts =
+            "--column --hidden --smart-case --color=always --no-heading --line-number -g '!{.git,node_modules}/'",
             multiprocess = true,
           })
         end,
@@ -305,7 +302,8 @@ return {
           local fzf_lua = require("fzf-lua")
           fzf_lua.live_grep({
             cwd = root_dir,
-            rg_opts = "--column --hidden --smart-case --color=always --no-heading --line-number -g '!{.git,node_modules}/'",
+            rg_opts =
+            "--column --hidden --smart-case --color=always --no-heading --line-number -g '!{.git,node_modules}/'",
             multiprocess = true,
           })
         end,
